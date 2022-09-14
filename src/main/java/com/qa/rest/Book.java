@@ -1,68 +1,59 @@
 package com.qa.rest;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity 
 public class Book{
 
+	@Id
+ @GeneratedValue(strategy = GenerationType.IDENTITY)
+	 Long id;
+	
+	 String name;
+	 String authors;
+	 String genre;
+	
+	public Book() {
+		super();
+	}
 	
 	
-
-	//add fields
-	private String name;
-	private String[] authors;
-	private float price; 
-	 
 	
-	/**
-	 *  add Constructor for book
-	 * @param name String title of the book
-	 * @param authors String array up to five authors
-	 * @param d double price of the book
-	 */
-	
-	public Book(String name, String[] authors, float d) {
+	public Book(Long id, String name, String authors, String genre) {
+		super();
+		this.id = id;
 		this.name = name;
 		this.authors = authors;
-		this.price = d;
+		this.genre = genre;
 	}
-
-	// add getter/setter or methods
-	
-	
+	public Long getId() {
+		return id;
+	}
+	public void setId(Long id) {
+		this.id = id;
+	}
 	public String getName() {
 		return name;
 	}
-
-
 	public void setName(String name) {
 		this.name = name;
 	}
-
-
-	/**
-	 * Set the authors of the book, replaced the old array entirely
-	 * Will only accept up to 5 authors in the array, otherwise an 
-	 * error is thrown and no change is made
-	 * 
-	 * @param authors array of authors to replace the current set
-	 */
-	
-
-	
-
-	
-	public float getPrice() {
-		return price;
-	}
-
-
-	public void setPrice(float price) {
-		this.price = price;
-	}
-
-
-	public String[]addAuthor() {
-		
-		//add code to add authors to the book !
+	public String getAuthors() {
 		return authors;
+	}
+	public void setAuthors(String authors) {
+		this.authors = authors;
+	}
+
+	public String getGenre() {
+		return genre;
+	}
+	public void setGenre(String genre) {
+		this.genre = genre;
 	}
 	
 }
+	
